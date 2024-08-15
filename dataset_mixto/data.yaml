@@ -1,0 +1,13 @@
+train: /home/ada-lovelace/ultralytics/dataset/train/images
+val: /home/ada-lovelace/ultralytics/dataset/valid/images
+test: /home/ada-lovelace/ultralytics/dataset/test/images
+
+nc: 25
+names: ['bathtube', 'bed', 'book', 'bookshelf', 'cabinet', 'chair', 'countertop', 'fridge', 'lamp', 'laptop', 'microwave', 'monitor', 'nighttable', 'oven', 'person', 'pillow', 'shelf', 'shower', 'sink', 'sofa', 'stove', 'table', 'toilet', 'wardrobe', 'washbasin']
+
+roboflow:
+  workspace: coppelia-08bf9
+  project: tfm-ybks9
+  version: 4
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/coppelia-08bf9/tfm-ybks9/dataset/4
