@@ -11,17 +11,17 @@ The options available in terms of commercial simulators are very varied. Technol
 |**SIMULATOR**|**CHRONOS**|**COPPELIASIM**|**GAZEBO**|**ISAAC**|**UNITY**|**WEBOTS**|
 |-------------------|----------------|------|------------|--------|-------|-------|
 |GPS|V|V|V|V|V|V|
-|LIDAR|checkmark|checkmark1|checkmark|checkmark|checkmark|checkmark|
-|TRACKS|checkmark|checkmark1|checkmark|checkmark|checkmark|checkmark|
-|WHEELS|checkmark|checkmark1|checkmark|checkmark|checkmark|checkmark|
-|OMNI WHEELS|checkmark|checkmark1|checkmark|checkmark|checkmark|checkmark|
-|HEIGHTMAP IMPORT|checkmark|checkmark1|checkmark|checkmark|checkmark|checkmark|
-|OPENDRIVE|checkmark|checkmark1|checkmark|checkmark|checkmark|checkmark|
-|OPENSTREETMAP|checkmark|checkmark1|checkmark|checkmark|checkmark|checkmark|
-|PATHPLANNING|checkmark|checkmark1|checkmark|checkmark|checkmark|checkmark|
-|ROS SUPPORT|checkmark|checkmark1|checkmark|checkmark|checkmark|checkmark|
-|RGBD|checkmark|checkmark1|checkmark|checkmark|checkmark|checkmark|
-|REALISTIC RENDERING|checkmark|checkmark1|checkmark|checkmark|checkmark|checkmark|
+|LIDAR|V|V|V|V|V|V|
+|TRACKS|V|V|V|V|V|V|
+|WHEELS|V|V|V|V|V|V|
+|OMNI WHEELS|V|V|V|V|V|V|
+|HEIGHTMAP IMPORT|V|V|V|V|V|V|
+|OPENDRIVE|X|X|X|X|X|V|
+|OPENSTREETMAP|X|X|X|X|X|V|
+|PATHPLANNING|X|V|V|V|X|V|
+|ROS SUPPORT|X|V|V|V|X|V|
+|RGBD|V|V|V|V|V|V|
+|REALISTIC RENDERING|V|V|X|V|V|X|
 
 
 ## METHODOLOGY
@@ -30,7 +30,7 @@ This section details the proposed method to generate random domestic environment
 
 
 ### GENERATION OF RANDOM DOMESTIC ENVIRONMENTS
-The domestic environment is modeled as a 3x3 matrix $A$ divided into cells (a_{i,j}) for i,j = 0,1,2 which correspond to a certain area. This ensures a regular house plan that can allocate diverse essential room types (such as kitchens or bathrooms) and wide open spaces. Both the orientation and position of a room must be indicated when generating a room in the simulator. Rooms, and specially the outermost ones divided into \textit{corner rooms} (in contact with two rooms, N=2), \textit{side rooms} (in contact with three rooms, N=3) and \textit{center room} (in contact with four rooms, N=4), must be correctly oriented to avoid placing doors that coincide with external or internal walls. For each cell $a_{i,j}$ we define a set of \textit{connection vectors} $C_{i,j} = [c_{(i,j),0},..., c_{(i,j),N-1}]$, where each \textit{connection} $c_{(i,j),k}$ where $k=0,...,N$, points to the location of an adjacent room. Then, each room model must be rotated to the orientation $\theta_{i,j}$ for which the room's connections $C'_{i,j}$ are aligned with cell connections $C_{i,j}$ of their assigned location. This means that in their proper orientation, the room's connections point to existing rooms, not out of bounds.
+The domestic environment is modeled as a 3x3 matrix $A$ divided into cells $(a_{i,j})$ for i,j = 0,1,2 which correspond to a certain area. This ensures a regular house plan that can allocate diverse essential room types (such as kitchens or bathrooms) and wide open spaces. Both the orientation and position of a room must be indicated when generating a room in the simulator. Rooms, and specially the outermost ones divided into \textit{corner rooms} (in contact with two rooms, N=2), \textit{side rooms} (in contact with three rooms, N=3) and \textit{center room} (in contact with four rooms, N=4), must be correctly oriented to avoid placing doors that coincide with external or internal walls. For each cell $a_{i,j}$ we define a set of \textit{connection vectors} $C_{i,j} = [c_{(i,j),0},..., c_{(i,j),N-1}]$, where each \textit{connection} $c_{(i,j),k}$ where $k=0,...,N$, points to the location of an adjacent room. Then, each room model must be rotated to the orientation $\theta_{i,j}$ for which the room's connections $C'_{i,j}$ are aligned with cell connections $C_{i,j}$ of their assigned location. This means that in their proper orientation, the room's connections point to existing rooms, not out of bounds.
 
 [![matrix](../fig/1.png)]
 
