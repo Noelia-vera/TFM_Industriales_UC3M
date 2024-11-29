@@ -10,7 +10,7 @@ A simulation of domestic environments has been developed in order to have a digi
 The options available in terms of commercial simulators are very varied. Technological advances and constant change in the field mean that new simulators are appearing, while others are becoming obsolete. There is no guide that facilitates the selection of a suitable simulation tool for the specific needs of each researcher. Some of the most prominent simulators in the field of robotics are presented below, detailing their characteristics:
 |**SIMULATOR**|**CHRONOS**|**COPPELIASIM**|**GAZEBO**|**ISAAC**|**UNITY**|**WEBOTS**|
 |-------------------|----------------|------|------------|--------|-------|-------|
-|GPS|checkmark|checkmark1|checkmark|checkmark|checkmark|checkmark|
+|GPS|V|V|V|V|V|V|
 |LIDAR|checkmark|checkmark1|checkmark|checkmark|checkmark|checkmark|
 |TRACKS|checkmark|checkmark1|checkmark|checkmark|checkmark|checkmark|
 |WHEELS|checkmark|checkmark1|checkmark|checkmark|checkmark|checkmark|
@@ -30,7 +30,7 @@ This section details the proposed method to generate random domestic environment
 
 
 ### GENERATION OF RANDOM DOMESTIC ENVIRONMENTS
-The domestic environment is modeled as a 3x3 matrix $A$ divided into cells $(a_{i,j})_{3\times3}$ for $i,j = 0,1,2$ which correspond to a certain area as depicted in Figure~\ref{fig:room_representation}. This ensures a regular house plan that can allocate diverse essential room types (such as kitchens or bathrooms) and wide open spaces. Both the orientation and position of a room must be indicated when generating a room in the simulator. Rooms, and specially the outermost ones divided into \textit{corner rooms} (in contact with two rooms, $N=2$), \textit{side rooms} (in contact with three rooms, $N=3$) and \textit{center room} (in contact with four rooms, $N=4$), must be correctly oriented to avoid placing doors that coincide with external or internal walls. For each cell $a_{i,j}$ we define a set of \textit{connection vectors} $C_{i,j} = [c_{(i,j),0},..., c_{(i,j),N-1}]$, where each \textit{connection} $c_{(i,j),k}$ where $k=0,...,N$, points to the location of an adjacent room. Then, each room model must be rotated to the orientation $\theta_{i,j}$ for which the room's connections $C'_{i,j}$ are aligned with cell connections $C_{i,j}$ of their assigned location. This means that in their proper orientation, the room's connections point to existing rooms, not out of bounds.
+The domestic environment is modeled as a 3x3 matrix $A$ divided into cells (a_{i,j})_{3\times3} for i,j = 0,1,2 which correspond to a certain area as depicted in Figure~\ref{fig:room_representation}. This ensures a regular house plan that can allocate diverse essential room types (such as kitchens or bathrooms) and wide open spaces. Both the orientation and position of a room must be indicated when generating a room in the simulator. Rooms, and specially the outermost ones divided into \textit{corner rooms} (in contact with two rooms, N=2), \textit{side rooms} (in contact with three rooms, N=3) and \textit{center room} (in contact with four rooms, N=4), must be correctly oriented to avoid placing doors that coincide with external or internal walls. For each cell $a_{i,j}$ we define a set of \textit{connection vectors} $C_{i,j} = [c_{(i,j),0},..., c_{(i,j),N-1}]$, where each \textit{connection} $c_{(i,j),k}$ where $k=0,...,N$, points to the location of an adjacent room. Then, each room model must be rotated to the orientation $\theta_{i,j}$ for which the room's connections $C'_{i,j}$ are aligned with cell connections $C_{i,j}$ of their assigned location. This means that in their proper orientation, the room's connections point to existing rooms, not out of bounds.
 
 [![matrix](../fig/1.png)]
 
@@ -39,7 +39,7 @@ This process is divided in two steps:
 * **Random selection of room:** The first part of the method consists on the random selection of room models for each type of room. To generate our environments, each type of room is generated once. Table~\ref{tab:room_types} shows the different room types with their default \textit{connection} vectors to adjacent rooms at $\theta_{i,j} = 0$. Note that type 4 rooms that correspond to living room models are described as large rooms. This type of room occupies two adjacent areas (cells) in any orientation, i.e., $(a_{i,j},a_{i+1,j})$ or $(a_{i,j},a_{i,j+1})$. Type 5 room models are designated to be the center area with fixed position $a_{1,1}$.
 
 |**TYPE**|**DESCRIPTION**|**CONNECTIONS AT $\theta_{i,j}=0$**|
-|-------------------|----------------|------|------------|--------|-------|-------|
+|-------------------|----------------|------|
 |0|Hall (Side) |[[0, -1],[-1, 0],[0,1]]|
 |1|Kitchen (Corner) |[[0, -1],[-1, 0]]|
 |2|Bathroom (Corner)|[[0, -1],[-1, 0]]|
@@ -60,17 +60,21 @@ Having assigned the rooms to each area cell, the models are placed and oriented 
 [![example](../fig/2.png)]
 
 The algorithm is not only responsible for placing the rooms in certain positions, but also for orienting them in such a way that they do not generate discontinuities or failures in the design.
+
+
 [![example](../fig/7.png)]
 
 ### EXAMPLES OF THE ROOMS
 
 The following are examples of individually designed rooms for the generation of a complete environment.
+
 [![room](../fig/3.png)]
 [![room](../fig/4.png)]
 [![room](../fig/5.png)]
 
 
 Several complete simulation environments have been generated where the rooms comply with the appropriate positions and orientations indicated in the matrix.
+
 [![environments](../fig/6.png)]
 
 ***
