@@ -32,7 +32,9 @@ This section details the proposed method to generate random domestic environment
 ### GENERATION OF RANDOM DOMESTIC ENVIRONMENTS
 The domestic environment is modeled as a 3x3 matrix $A$ divided into cells $(a_{i,j})$ for i,j = 0,1,2 which correspond to a certain area. This ensures a regular house plan that can allocate diverse essential room types (such as kitchens or bathrooms) and wide open spaces. Both the orientation and position of a room must be indicated when generating a room in the simulator. Rooms, and specially the outermost ones divided into \textit{corner rooms} (in contact with two rooms, N=2), \textit{side rooms} (in contact with three rooms, N=3) and \textit{center room} (in contact with four rooms, N=4), must be correctly oriented to avoid placing doors that coincide with external or internal walls. For each cell $a_{i,j}$ we define a set of \textit{connection vectors} $C_{i,j} = [c_{(i,j),0},..., c_{(i,j),N-1}]$, where each \textit{connection} $c_{(i,j),k}$ where $k=0,...,N$, points to the location of an adjacent room. Then, each room model must be rotated to the orientation $\theta_{i,j}$ for which the room's connections $C'_{i,j}$ are aligned with cell connections $C_{i,j}$ of their assigned location. This means that in their proper orientation, the room's connections point to existing rooms, not out of bounds.
 
-[![matrix](../fig/1.png)]
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2018.png" alt="Frame 18" width="500"/>
+</p>
 
 This process is divided in two steps:
 
@@ -53,6 +55,10 @@ This process is divided in two steps:
 A set of $M_t$ distinct room models in CoppeliaSim are predefined for each room type $t$, so the probability of a model $m_{t,i}$ being selected for a certain type is $P(m_{t,i}|t) = \frac{1}{|M_t|}$. Figure~\ref{fig:example_rooms} shows an example of room models for side and corner rooms, oriented at $\theta = 0\;rad$ and located at the world origin. The result of this part is a set of unique room models identified by their room type $t$ initialized at default position, origin and connections.
 
 
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2018.png" alt="Frame 18" width="500"/>
+</p>
+
 * **Random distribution of rooms:**  The second part of the method consist in the random distribution of the rooms shown in Algorithm~\ref{alg:random_rooms}. We define a vector $T_{1 \times 8}$ where each of its elements $T_t$ contains the randomly selected room model $m_{t}$ and its corresponding connections $C'_{i,j}$ for each room type $t=0,...,7$. The elements in $T$ are randomly shuffled and assigned to empty cells in the area distribution matrix $A = (a_{i,j})_{3\times 3}$ according to their room type. It is also ensured that the room connections $C'_{i,j}$ align with their corresponding cell connections (pointing to not out of bounds existing areas) and rotated otherwise with a rotation matrix $R_z(\pi/2)$ and $\theta_{i,j} = \theta_{i,j} + \pi/2 \;rad$. Other restrictions imposed are the location of the center room in cell $a_{1,1}$ and the assignation of two adjacent cells to large rooms as previously mentioned in this Section.
 
 Having assigned the rooms to each area cell, the models are placed and oriented in the empty scene in CoppeliaSim to which the algorithm is connected. The models are placed at the coordinates given by $a_{i,j}$ times the room length of a cell $d = 5$ m and oriented at their corresponding angle $\theta_{i,j}$ with respect to the world's reference frame.
@@ -68,10 +74,19 @@ The algorithm is not only responsible for placing the rooms in certain positions
 
 The following are examples of individually designed rooms for the generation of a complete environment.
 
-[![room](../fig/3.png)]
-[![room](../fig/4.png)]
-[![room](../fig/5.png)]
 
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2012.png" alt="Frame 12" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2013.png" alt="Frame 13" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2014.png" alt="Frame 14" width="500"/>
+</p>
 
 Several complete simulation environments have been generated where the rooms comply with the appropriate positions and orientations indicated in the matrix.
 
@@ -85,6 +100,9 @@ The robot used in this work is the Autonomous Domestic Ambidextrous Manipulator 
 
 It is composed of a perception system, a mobile base, a torso, two arms, and two grippers, reaching a total height of 160 cm and a width of 50 cm when the arms are at rest. Its design is modular and independent, allowing each part to be worked on separately or jointly, thus expanding the robot's future capabilities. It is divided into four parts:
 
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Estructura.png" alt="Estructura del robot" width="500"/>
+</p>
 
 * **Perception System:** Responsible for capturing information from the environment to manipulate objects and navigate. It includes an RGBD camera and a 2D LiDAR located near the ground. The Realsense D435 RGBD depth camera features an infrared stereo vision module and a traditional RGB module. Its specifications are a maximum resolution of 1280×720 for the depth stream and 1920×1080 for the RGB stream, with a frame rate of 90 and 30 fps, respectively, and a field of view of 87$^{\circ} \times 58^{\circ}$, with an operating range of up to 3 m. Additionally, it has an Ouster OS0 LiDAR sensor to provide a wider angle and range, so that a single scan can capture complete information of the room.
 
@@ -97,6 +115,10 @@ It is composed of a perception system, a mobile base, a torso, two arms, and two
 
 
 The model used in the simulation was generated by the company Robotnik, which was responsible for assembling the real robot according to the specified requirements. The simulated robot is in .urdf (Unified Robot Description Format) format, an XML file type used to describe the structure of robot joints and links in virtual environments.The Figure shows the robot in Gazebo with the local reference frames of its different joints. The compatibility of this file type is direct with Gazebo, but the same is not true for the CoppeliaSim simulator, as it has its own file format for models and robots. It was necessary to convert the format so that the simulator could handle all the functionalities the initial model had, including joint dynamics, physical properties, and reference frames. Finally, it is shown the robot simulated in CoppeliaSim.
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/COPPELIA.png" alt="Simulador Coppelia" width="500"/>
+</p>
 
 # DATA COLLECTION FOR DATASET GENERATION
 Data collection is carried out through images of the simulated environment, which are captured by a perspective vision sensor on the simulated robot model. Its configuration consists of a resolution of 640 x 480 pixels with a perspective angle of 50°, allowing control over the robot's field of view within the scene. This sensor is configured with a script that allows taking photos every second during the simulation. Additionally, a path has been generated for the areas of interest that is distributed throughout the space,which the robot follows while simultaneously taking photos. Moreover, this path can be modified in real-time moving the waypoints that define the path if more data is needed from specific areas. a complete scenario generated with the robot is shown, including the range of the vision sensor and the path it must follow for data collection.
@@ -141,25 +163,8 @@ As future work, methods will be studied to reduce the generation time of the env
 # ARTICLES
 
 
-<p align="center">
-  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/COPPELIA.png" alt="Simulador Coppelia" width="500"/>
-</p>
 
-<p align="center">
-  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Estructura.png" alt="Estructura del robot" width="500"/>
-</p>
 
-<p align="center">
-  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2012.png" alt="Frame 12" width="500"/>
-</p>
-
-<p align="center">
-  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2013.png" alt="Frame 13" width="500"/>
-</p>
-
-<p align="center">
-  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2014.png" alt="Frame 14" width="500"/>
-</p>
 
 <p align="center">
   <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2018.png" alt="Frame 18" width="500"/>
