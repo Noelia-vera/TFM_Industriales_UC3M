@@ -141,17 +141,17 @@ As future work, methods will be studied to reduce the generation time of the env
 # ARTICLES
 
 
-[![imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/COPPELIA.png)]
+![imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/COPPELIA.png)
 
-[imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Estructura.png)
-[imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2012.png)
-[imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2013.png)
-[imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2014.png)
-[imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2018.png)
-[imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2019.png)
-[imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2020.png)
-[imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2021.png)
-[imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2023.png)
+![imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Estructura.png)
+![imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2012.png)
+![imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2013.png)
+![imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2014.png)
+![imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2018.png)
+![imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2019.png)
+![imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2020.png)
+![imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2021.png)
+![imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2023.png)
 https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2024.png
 https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2029.png
 https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2030.png
