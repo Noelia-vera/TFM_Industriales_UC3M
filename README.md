@@ -141,33 +141,112 @@ As future work, methods will be studied to reduce the generation time of the env
 # ARTICLES
 
 
-![imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/COPPELIA.png)
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/COPPELIA.png" alt="Simulador Coppelia" width="500"/>
+</p>
 
-![imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Estructura.png)
-![imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2012.png)
-![imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2013.png)
-![imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2014.png)
-![imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2018.png)
-![imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2019.png)
-![imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2020.png)
-![imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2021.png)
-![imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2023.png)
-https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2024.png
-https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2029.png
-https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2030.png
-https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2048.png
-https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2056.png
-https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2059.png
-https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2057.png
-https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2060.png
-https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Grafico.png
-https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/H1.png
-https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/completo.png
-https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/final_result.png
-çhttps://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/final_results.png
-https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/robot_operation.png
-https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/robot_vision.png
-https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/wrong_walls.png
-https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/robotflow.png
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Estructura.png" alt="Estructura del robot" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2012.png" alt="Frame 12" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2013.png" alt="Frame 13" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2014.png" alt="Frame 14" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2018.png" alt="Frame 18" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2019.png" alt="Frame 19" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2020.png" alt="Frame 20" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2021.png" alt="Frame 21" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2023.png" alt="Frame 23" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2024.png" alt="Frame 24" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2029.png" alt="Frame 29" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2030.png" alt="Frame 30" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2048.png" alt="Frame 48" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2056.png" alt="Frame 56" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2059.png" alt="Frame 59" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2057.png" alt="Frame 57" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2060.png" alt="Frame 60" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Grafico.png" alt="Gráfico" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/H1.png" alt="H1" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/completo.png" alt="Completo" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/final_result.png" alt="Resultado final" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/final_results.png" alt="Resultados finales" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/robot_operation.png" alt="Operación del robot" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/robot_vision.png" alt="Visión del robot" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/wrong_walls.png" alt="Paredes incorrectas" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/robotflow.png" alt="Flujo del robot" width="500"/>
+</p>
 
 Este proyecto es una implementación recogida en: [Fernandez, N., Espinoza, G., Mendez, A., Prados, A., Mora, A., & Barber, R. (2024, November). Data Generation in Simulated Domestic Environments for Assistive Robots. In 2024 7th Iberian Robotics Conference (ROBOT) (pp. 1-6). IEEE.](https://ieeexplore.ieee.org/abstract/document/10797352) y en [Fernandez, N., Espinoza, G., Mendez, A., Mora, A., & Barber, R. (2024, May). Simulation of randomly generated domestic environments for assistive robotics. In 2024 IEEE International Conference on Autonomous Robot Systems and Competitions (ICARSC) (pp. 28-33). IEEE.](https://ieeexplore.ieee.org/abstract/document/10535940)
