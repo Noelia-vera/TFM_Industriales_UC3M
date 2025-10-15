@@ -141,7 +141,7 @@ As future work, methods will be studied to reduce the generation time of the env
 # ARTICLES
 
 
-[imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/COPPELIA.png)
+[![imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/COPPELIA.png)]
 
 [imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Estructura.png)
 [imagenes](https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2012.png)
