@@ -185,7 +185,7 @@ Moreover, although the models were initially designed to be fully furnished with
 Tests were conducted with 20 domestic environments generated for each of the three versions of the models, recording the execution time for each and evaluating whether the environment was fully generated. The experiment was conducted on an MSI Katana GF66 with a 12th Gen Intel(R) Core(TM) i7-12700H using CoppeliaSim version 4.5. It can be observed that the level of detail in the rooms is a key factor that increases not only the time required to generate a complete environment but also the number of environments that fail to generate or are incomplete, also it illustrates an incomplete environment where one of the rooms has not been properly oriented and positioned. It is also shown an example of discontinuities in the walls, leading to a design failure by changing the dimensions of the cells.
 
 <p align="center">
-  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2024.png" alt="Frame 24" width="500"/>
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame 30.png" alt="Frame 24" width="500"/>
 </p>
 
 
