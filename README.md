@@ -33,7 +33,7 @@ This section details the proposed method to generate random domestic environment
 The domestic environment is modeled as a 3x3 matrix $A$ divided into cells $(a_{i,j})$ for i,j = 0,1,2 which correspond to a certain area. This ensures a regular house plan that can allocate diverse essential room types (such as kitchens or bathrooms) and wide open spaces. Both the orientation and position of a room must be indicated when generating a room in the simulator. Rooms, and specially the outermost ones divided into \textit{corner rooms} (in contact with two rooms, N=2), \textit{side rooms} (in contact with three rooms, N=3) and \textit{center room} (in contact with four rooms, N=4), must be correctly oriented to avoid placing doors that coincide with external or internal walls. For each cell $a_{i,j}$ we define a set of \textit{connection vectors} $C_{i,j} = [c_{(i,j),0},..., c_{(i,j),N-1}]$, where each \textit{connection} $c_{(i,j),k}$ where $k=0,...,N$, points to the location of an adjacent room. Then, each room model must be rotated to the orientation $\theta_{i,j}$ for which the room's connections $C'_{i,j}$ are aligned with cell connections $C_{i,j}$ of their assigned location. This means that in their proper orientation, the room's connections point to existing rooms, not out of bounds.
 
 <p align="center">
-  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2018.png" alt="Frame 18" width="500"/>
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2019.png" alt="Frame 19" width="500"/>
 </p>
 
 This process is divided in two steps:
@@ -55,8 +55,13 @@ This process is divided in two steps:
 A set of $M_t$ distinct room models in CoppeliaSim are predefined for each room type $t$, so the probability of a model $m_{t,i}$ being selected for a certain type is $P(m_{t,i}|t) = \frac{1}{|M_t|}$. Figure~\ref{fig:example_rooms} shows an example of room models for side and corner rooms, oriented at $\theta = 0\;rad$ and located at the world origin. The result of this part is a set of unique room models identified by their room type $t$ initialized at default position, origin and connections.
 
 
+
 <p align="center">
-  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2018.png" alt="Frame 18" width="500"/>
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2020.png" alt="Frame 20" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2021.png" alt="Frame 21" width="500"/>
 </p>
 
 * **Random distribution of rooms:**  The second part of the method consist in the random distribution of the rooms shown in Algorithm~\ref{alg:random_rooms}. We define a vector $T_{1 \times 8}$ where each of its elements $T_t$ contains the randomly selected room model $m_{t}$ and its corresponding connections $C'_{i,j}$ for each room type $t=0,...,7$. The elements in $T$ are randomly shuffled and assigned to empty cells in the area distribution matrix $A = (a_{i,j})_{3\times 3}$ according to their room type. It is also ensured that the room connections $C'_{i,j}$ align with their corresponding cell connections (pointing to not out of bounds existing areas) and rotated otherwise with a rotation matrix $R_z(\pi/2)$ and $\theta_{i,j} = \theta_{i,j} + \pi/2 \;rad$. Other restrictions imposed are the location of the center room in cell $a_{1,1}$ and the assignation of two adjacent cells to large rooms as previously mentioned in this Section.
@@ -166,21 +171,9 @@ As future work, methods will be studied to reduce the generation time of the env
 
 
 
-<p align="center">
-  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2018.png" alt="Frame 18" width="500"/>
-</p>
 
-<p align="center">
-  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2019.png" alt="Frame 19" width="500"/>
-</p>
 
-<p align="center">
-  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2020.png" alt="Frame 20" width="500"/>
-</p>
 
-<p align="center">
-  <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2021.png" alt="Frame 21" width="500"/>
-</p>
 
 <p align="center">
   <img src="https://github.com/Noelia-vera/TFM_Industriales_UC3M/raw/main/imagenes/Frame%2023.png" alt="Frame 23" width="500"/>
