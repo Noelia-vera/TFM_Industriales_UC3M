@@ -116,73 +116,15 @@ Five different models of each type of room have been generated in CoppeliaSim. A
 
 Moreover, although the models were initially designed to be fully furnished with a high degree of detail and objects of interest, semi-furnished models (which include main furniture such as tables, wardrobes, or chairs) and unfurnished models (only essential structural elements like walls, floors, and doors) have been simultaneously designed to study the impact of complexity on execution and generation times.
 
-Tests were conducted with 20 domestic environments generated for each of the three versions of the models, recording the execution time for each and evaluating whether the environment was fully generated. The experiment was conducted on an MSI Katana GF66 with a 12th Gen Intel(R) Core(TM) i7-12700H using CoppeliaSim version 4.5. Table~\ref{tab:generation_results} contains the average execution times for the three designed models and the percentage of successfully completed generations. It can be observed that the level of detail in the rooms is a key factor that increases not only the time required to generate a complete environment but also the number of environments that fail to generate or are incomplete. Figure~\ref{fig:uncomplete}b illustrates an incomplete environment where one of the rooms has not been properly oriented and positioned. Figure~\ref{fig:uncomplete}a shows an example of discontinuities in the walls, leading to a design failure by changing the dimensions of the cells.
+Tests were conducted with 20 domestic environments generated for each of the three versions of the models, recording the execution time for each and evaluating whether the environment was fully generated. The experiment was conducted on an MSI Katana GF66 with a 12th Gen Intel(R) Core(TM) i7-12700H using CoppeliaSim version 4.5. It can be observed that the level of detail in the rooms is a key factor that increases not only the time required to generate a complete environment but also the number of environments that fail to generate or are incomplete, also it illustrates an incomplete environment where one of the rooms has not been properly oriented and positioned. It is also shown an example of discontinuities in the walls, leading to a design failure by changing the dimensions of the cells.
 
-\begin{table}[ht]
-    % increase table row spacing, adjust to taste
-    %\renewcommand{\arraystretch}{1.3}
-    \caption{Execution time results on unfurnished, semi-furnished and furnished room models}
-    \label{tab:generation_results}
-    \centering
-    \begin{tabular}{l|ccc}
-    \hline
-    \textbf{}      & \textbf{Mean [s]} & \textbf{Std. Dev. [s]} & \textbf{Successful Generation} \\ \hline
-    Unfurnished    & 0.78          & 0.18                        & 100\%                             \\
-    Semi-furnished & 16.15         & 4.79                        & 95\%                             \\
-    Furnished      & 741.13        & 4.78                        & 55\%                            
-    \end{tabular}
-\end{table}
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=\columnwidth]{imagenes/Frame 58.png}
-    \caption{Examples of fail generations: a) Discontinuities in the walls, b) Uncompletely furnished randomly distributed domestic environment with wrong orientation and position. }
-    \label{fig:uncomplete}
-\end{figure}
 
 
 ## Evaluation of successful object detection with a convolutional neural network
 A total of 25 classes were used within the 2,177 images randomly generated with the simulated environments, of which 70\% have been used for training, 20\% for validation and 10\% for testing. Augmented data has also been used to expand the database, resulting in a total of 18,904 images.
 The amount of generated data is relevant for selecting the neural network to work with. In the case of the YOLOv8 network, there are five possibilities, and the differences between them are the number of parameters and FLOPs (B) they handle. For our case, initial training has been carried out with the YOLOv8n, YOLOv8m, and YOLOv8x networks configured with the same hyperparameters. The YOLOv8n network has been selected because the number of parameters and FLOPs it handles aligns well with the simulated data we are working with. Subsequently, six different trainings of 300 epochs were performed with pre-trained networks, modifying hyperparameters to improve performance metrics such as lr0, lrf, weight decay, dropout, warmup epoch, warmup momentum, warmup bias, and data augmentation parameters such as mosaic, HSV, or crop fraction. The network comprises 195 layers, and during training, a validation phase is performed for each epoch, where the errors, accuracies, and learning of the network are adjusted.
 
-It took 8 hours and 44 minutes to retrain the neural networks with the synthetically generated and hand-labeled images using an Intel i9 12900K CPU and a NVIDIA 3080 GPU with 10GB of VRAM. Table~\ref{tab:redneuronal} displays the values from the last and best training of the neural network. The mask (Precision) value indicates detection accuracy, while R (recall) represents the proportion of correct detections made by the network on all objects in the image. mAP50 (mean average precision at IoU=0.5) is the average precision across all classes, and mAP50-95 (mean average precision at IoU=0.5 to 0.95) provides a more comprehensive evaluation of the model's performance.
-
-\begin{table}[ht]
-    % increase table row spacing, adjust to taste
-    %\renewcommand{\arraystretch}{1.3}
-    \caption{Results of the final retraining of the YOLOv8n-seg neural network with synthetic images of simulated indoor environments.}
-    \label{tab:redneuronal}
-    \centering
-    \begin{tabular}{l|cccc}
-    \hline
-    \textbf{}      & \textbf{Mask (Precision)} & \textbf{Recall} & \textbf{mAP50}& \textbf{mAP50-95} \\ \hline
-    All    & 0.861  & 0.838  & 0.861  &  0.700   \\
-    Bathtube    &  0.932 & 0.982 & 0.966 & 0.919  \\
-    Bed & 0.893 & 0.952 & 0.620 & 0.804   \\
-    Book & 0.696 & 0.837 & 0.747 & 0.546      \\
-    Bookshelf & 0.817 & 0.844 & 0.892 & 0.695      \\
-    Cabinet & 0.810 & 0.767 & 0.796 & 0.659  \\
-    Chair & 0.767 & 0.752 & 0.777 & 0.550 \\
-    Countertop & 0.816 & 0.724 & 0.733 & 0.488  \\
-    Fridge & 0.950 & 0.855 & 0.910 & 0.799   \\
-    Lamp & 0.972 & 0.911 & 0.952 & 0.759   \\
-    Laptop & 0.894 & 0.929 & 0.968 & 0.749  \\
-    Microwave & 0.906 & 0.933 & 0.873 & 0.682  \\
-    Monitor & 0.929 & 0.985 & 0.967 & 0.885     \\
-    Night Table & 1.00 & 0.916 & 0.979 & 0.830      \\
-    Oven & 0.912 & 0.840 & 0.878 & 0.725 \\
-    Person & 0.964 & 0.971 & 0.963 & 0.899      \\
-    Pillow & 0.751 & 0.721 & 0.816 & 0.657   \\
-    Shelf & 0.429 & 0.188 & 0.285 & 0.147      \\
-    Shower & 0.966 & 0.969 & 0.998 & 0.928    \\
-    Sink & 0.809 & 0.603 & 0.684 &  0.397    \\
-    Sofa & 0.893 & 0.916 & 0.941 & 0.849  \\
-    Stove & 0.857 & 0.846 & 0.839 & 0.515   \\
-    Table & 0.703 & 0.766 & 0.775 & 0.543      \\
-    Toilet & 0.995 & 0.978 & 0.988 & 0.823    \\
-    Wardrobe & 1.00 & 0.955 & 0.995 & 0.956   \\
-    Washbasin & 0.862 & 0.802 & 0.859 & 0.679                                                      
-    \end{tabular}
-\end{table}
+It took 8 hours and 44 minutes to retrain the neural networks with the synthetically generated and hand-labeled images using an Intel i9 12900K CPU and a NVIDIA 3080 GPU with 10GB of VRAM. It is displays the values from the last and best training of the neural network. The mask (Precision) value indicates detection accuracy, while R (recall) represents the proportion of correct detections made by the network on all objects in the image. mAP50 (mean average precision at IoU=0.5) is the average precision across all classes, and mAP50-95 (mean average precision at IoU=0.5 to 0.95) provides a more comprehensive evaluation of the model's performance.
 
 
 
@@ -195,3 +137,35 @@ On the other hand, the images have been manually labeled with classes specific t
 
 
 As future work, methods will be studied to reduce the generation time of the environments and guarantee the success of the generations. More individual room models will be created to add objects of the same classes with different geometric aspects and colors. In addition, images from the synthetic dataset will be expanded, as well as looking for an automatic labeling method to reduce the time on labeling each object individually. The detection of the network will be checked with real data obtained by the robot to validate the results of this work.
+
+# ARTICLES
+
+
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/COPPELIA.png
+
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Estructura.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2012.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2013.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2014.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2018.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2019.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2020.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2021.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2023.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2024.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2029.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2030.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2048.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2056.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2059.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2057.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Frame%2060.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/Grafico.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/H1.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/completo.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/final_result.png
+çhttps://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/final_results.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/robot_operation.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/robot_vision.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/wrong_walls.png
+https://github.com/Noelia-vera/TFM_Industriales_UC3M/blob/main/imagenes/robotflow.png
